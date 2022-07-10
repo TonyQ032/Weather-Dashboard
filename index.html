@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,91 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="./assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Weather Dashboard</h1>
+
+  <header>
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <aside>
+    <!-- This will be search area -->
+    <div id="search-container">
+      <h2>Search for a city:</h2>
+      <input type="text" id="search-box">
+      <button id="submit-search">Search</button>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/5.0/components/list-group/ -->
+    <div id="prev-search-container" class="list-group">
+      <button type="button" class="list-group-item list-group-item-action prev-search">Fontana</button>
+      <button type="button" class="list-group-item list-group-item-action prev-search active">Rialto</button>
+      <button type="button" class="list-group-item list-group-item-action prev-search">Riverside</button>
+      <button type="button" class="list-group-item list-group-item-action prev-search">Los Angeles</button>
+    </div>
+
+  </aside>
+
+  <main>
+
+    <section id="gen-weather-card">
+      <!-- General weather info for the day -->
+      <h2>Rialto (July 10th, 2022)</h2>
+      <p>Temperature: <span id="temp-value"></span></p>
+      <p>Wind: <span id="wind-value"></span></p>
+      <p>Humidity: <span id="humidity-value"></span></p>
+      <p>UV Index: <span id="uv-value"></span></p>
+    </section>
+
+    <section id="forecast-container">
+      <!-- https://getbootstrap.com/docs/5.0/components/card/ -->
+      <!-- Five day forecast -->
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
