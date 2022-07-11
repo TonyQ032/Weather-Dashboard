@@ -36,7 +36,10 @@
   
     <section id="gen-weather-card">
       <!-- General weather info for the day -->
-      <h2><span id="city-name">Rialto</span> <span id="todays-date">(July 10th, 2022)</span></h2>
+      <div id="city-info-container">
+        <h2 id="city-name"></h2>
+        <h3 id="todays-date"></h3>
+      </div>
       <p>Temperature: <span id="temp-value"></span></p>
       <p>Wind: <span id="wind-value"></span></p>
       <p>Humidity: <span id="humidity-value"></span></p>
@@ -93,6 +96,8 @@
 
   </main>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
 </body>
