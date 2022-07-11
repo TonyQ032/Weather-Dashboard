@@ -1,0 +1,89 @@
+:root {
+  --accent-color: #2b6efd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: white;
+  background-color: var(--accent-color);
+  text-align: center;
+  padding: 20px;
+  font-size: 48px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+}
+
+#search-and-weather {
+  display: flex;
+  gap: 3%;
+  padding: 2%;
+}
+
+aside {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+}
+
+#search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#prev-search-container {
+  width: 100%;
+  height: 270px;
+  overflow-y: scroll;
+}
+
+#submit-search {
+  padding: 0 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px
+}
+
+#gen-weather-card {
+  width: 70%;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 5px;
+}
+
+main {
+  display: flex;
+  padding: 2%;
+}
+
+#forecast-container {
+  display: flex;
+}
+
+/* Cards CSS */
+.card-header {
+  text-align: center;
+}
+
+.card-title {
+  text-align: center;
+}
