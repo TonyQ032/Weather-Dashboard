@@ -123,10 +123,23 @@ function generateWeatherData(location) {
 
           //Assigning DOM elements new textcontent
           weatherEl.textContent = weatherValue;
-          tempEl.textContent = tempValue + " °F";
-          windEl.textContent = windValue + " mph";
-          humidityEl.textContent = humidityValue + "%";
-          uVIndexEl.textContent = uVIndexValue;
+          tempEl.textContent = "Temperature: " + tempValue + " °F";
+          windEl.textContent = "Wind: " + windValue + " mph";
+          humidityEl.textContent = "Humidity: " + humidityValue + "%";
+          uVIndexEl.textContent = "UV Index: " + uVIndexValue;
+
+          //Changes color of UV index depending on value
+          if (uVIndexValue < 2) {
+            uVIndexEl.style.color = "green";
+          } else if (uVIndexValue < 4) {
+            uVIndexEl.style.color = "goldenrod";
+          } else if (uVIndexValue < 6) {
+            uVIndexEl.style.color = "orange";
+          } else if (uVIndexValue < 8) {
+            uVIndexEl.style.color = "red";
+          } else {
+            uVIndexEl.style.color = "darkred";
+          }
 
           //Weather cards DOM elements
           const cardWeathers = document.querySelectorAll(".card-weather");
@@ -134,23 +147,46 @@ function generateWeatherData(location) {
           const cardWinds = document.querySelectorAll(".card-wind");
           const cardHumidities = document.querySelectorAll(".card-humidity");
           const cardUVs = document.querySelectorAll(".card-uv");
+          const cardImgs = document.querySelectorAll(".card-img");
 
           //Assigns values to all weather cards
           for (i = 0; i < cardWeathers.length; i++) {
+            //Changes weather icons
+            const cardImgValue = data2.daily[i].weather[0].icon;
+            cardImgs[i].src = `http://openweathermap.org/img/wn/${cardImgValue}@2x.png`
+
+            //Changes weather status
             const cWeatherValue = data2.daily[i].weather[0].main + ", " + data2.daily[i].weather[0].description;
-            cardWeathers[i].textContent = cWeatherValue;
+            cardWeathers[i].textContent = "Weather: " + cWeatherValue;
 
+            //Changes temp value
             const cTempValue = data2.daily[i].temp.day;
-            cardTemps[i].textContent = cTempValue + " °F";
+            cardTemps[i].textContent = "Temp: " + cTempValue + " °F";
 
+            //Changes wind speed value
             const cWindValue = data2.daily[i].wind_speed;
-            cardWinds[i].textContent = cWindValue + "mph";
+            cardWinds[i].textContent = "Wind: " + cWindValue + "mph";
 
+            //Changes humidity value
             const cHumidityValue = data2.daily[i].humidity;
-            cardHumidities[i].textContent = cHumidityValue + "%";
+            cardHumidities[i].textContent = "Humidity: " + cHumidityValue + "%";
 
+            //Changes UV Index value
             const cUVValue = data2.daily[i].uvi;
-            cardUVs[i].textContent = cUVValue;
+            cardUVs[i].textContent = "UV: " + cUVValue;
+
+            //Changes color of UV index depending on value
+            if (cUVValue < 2) {
+              cardUVs[i].style.color = "green";
+            } else if (cUVValue < 4) {
+              cardUVs[i].style.color = "goldenrod";
+            } else if (cUVValue < 6) {
+              cardUVs[i].style.color = "orange";
+            } else if (cUVValue < 8) {
+              cardUVs[i].style.color = "red";
+            } else {
+              cardUVs[i].style.color = "darkred";
+            }
           }
 
           const weatherImg = document.querySelector("#weather-img");
