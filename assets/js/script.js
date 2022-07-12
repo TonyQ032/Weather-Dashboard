@@ -29,6 +29,29 @@ const resetButton = document.querySelector("#reset-search");
 
 //Generates list item for previous searches
 //-----------------------------------------------------------
+
+let userSearches;
+if (localStorage.getItem('userInput') == null) {
+  userSearches = [];
+} else {
+  userSearches = JSON.parse(localStorage.getItem('userInput'));
+
+  //Generates list items on refresh if there is stored inputs
+  for (i = 0; i < userSearches.length; i++) {
+    const userInput = JSON.parse(localStorage.getItem('userInput'));
+
+    const liEl = document.createElement("button");
+    liEl.classList.add("list-group-item", "list-group-item-action", "prev-search");
+
+    liEl.setAttribute("type", "button");
+    liEl.textContent = userInput[i];
+
+    searchList.prepend(liEl);
+
+  }
+}
+
+//Generates list based on user input and retrieves data from API
 function generateListItem() {
   const userInput = searchBar.value;
 
@@ -37,8 +60,13 @@ function generateListItem() {
     return
   };
 
+  //Pushes user input into localStorage
+  userSearches.push(userInput);
+  localStorage.setItem('userInput', JSON.stringify(userSearches));
+  console.log(JSON.parse(localStorage.getItem('userInput')));
+
+  //Creates list element based on users input
   const liEl = document.createElement("button");
-  //liEl.classList.add("list-group-item", "list-group-item-action", "prev-search", "active");
   liEl.classList.add("list-group-item", "list-group-item-action", "prev-search");
 
   liEl.setAttribute("type", "button");
@@ -54,7 +82,7 @@ function generateListItem() {
 //Takes user's input and generates weather data using the API
 //-----------------------------------------------------------
 function generateWeatherData(location) {
-  let requestUrl1 = 'http://api.openweathermap.org/geo/1.0/direct?q=' + location + '&limit=5&appid=' + apiKey;
+  let requestUrl1 = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${apiKey}`;
   fetch(requestUrl1)
     .then(function (response) {
       return response.json();
@@ -124,12 +152,8 @@ function generateWeatherData(location) {
             const cUVValue = data2.daily[i].uvi;
             cardUVs[i].textContent = cUVValue;
           }
-
-
         })
-
     })
-
 }
 
 //Function that will run when user submits text into field
@@ -152,8 +176,12 @@ searchList.addEventListener("click", (e) => {
     const userInput = e.target.textContent;
     generateWeatherData(userInput)
   } else {
-    console.log("fails");
     return
   }
 })
 
+//Clears localStorage and empties search history
+resetButton.addEventListener("click", () => {
+  localStorage.removeItem("userInput");
+  searchList.innerHTML = "";
+})
