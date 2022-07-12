@@ -112,7 +112,7 @@ function generateWeatherData(location) {
           return response.json();
         })
         .then(function (data2) {
-          console.log(data2)
+          console.log(data2);
 
           //Data retrieved
           const weatherValue = data2.current.weather[0].main + ", " + data2.current.weather[0].description;
@@ -152,6 +152,10 @@ function generateWeatherData(location) {
             const cUVValue = data2.daily[i].uvi;
             cardUVs[i].textContent = cUVValue;
           }
+
+          const weatherImg = document.querySelector("#weather-img");
+          const weatherImgUrl = data2.current.weather[0].icon;
+          weatherImg.src = `http://openweathermap.org/img/wn/${weatherImgUrl}@2x.png`
         })
     })
 }
