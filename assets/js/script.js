@@ -10,7 +10,7 @@ dateElement.textContent = moment().format("dddd, MMMM DD, YYYY");
 const cardTitles = document.querySelectorAll(".card-header");
 
 for (i = 0; i < cardTitles.length; i++) {
-  cardTitles[i].textContent = moment().add(i + 1, 'days').format("dddd");
+  cardTitles[i].textContent = moment().add(i + 1, 'days').format("dddd, MMMM DD");
 }
 
 //Defining DOM elements
