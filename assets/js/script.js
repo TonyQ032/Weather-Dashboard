@@ -1,3 +1,4 @@
+//Api key
 const apiKey = 'fa76766d12eaa3a72edce7f1ba7e3827';
 
 //Moment.js
@@ -29,7 +30,6 @@ const resetButton = document.querySelector("#reset-search");
 
 //Generates list item for previous searches
 //-----------------------------------------------------------
-
 let userSearches;
 if (localStorage.getItem('userInput') == null) {
   userSearches = [];
@@ -122,7 +122,7 @@ function generateWeatherData(location) {
           const uVIndexValue = data2.current.uvi;
 
           //Assigning DOM elements new textcontent
-          weatherEl.textContent = weatherValue;
+          weatherEl.textContent = "Weather: " + weatherValue;
           tempEl.textContent = "Temperature: " + tempValue + " °F";
           windEl.textContent = "Wind: " + windValue + " mph";
           humidityEl.textContent = "Humidity: " + humidityValue + "%";
@@ -153,7 +153,7 @@ function generateWeatherData(location) {
           for (i = 0; i < cardWeathers.length; i++) {
             //Changes weather icons
             const cardImgValue = data2.daily[i].weather[0].icon;
-            cardImgs[i].src = `http://openweathermap.org/img/wn/${cardImgValue}@2x.png`
+            cardImgs[i].src = `http://openweathermap.org/img/wn/${cardImgValue}@2x.png`;
 
             //Changes weather status
             const cWeatherValue = data2.daily[i].weather[0].main + ", " + data2.daily[i].weather[0].description;
@@ -191,7 +191,7 @@ function generateWeatherData(location) {
 
           const weatherImg = document.querySelector("#weather-img");
           const weatherImgUrl = data2.current.weather[0].icon;
-          weatherImg.src = `http://openweathermap.org/img/wn/${weatherImgUrl}@2x.png`
+          weatherImg.src = `http://openweathermap.org/img/wn/${weatherImgUrl}@2x.png`;
         })
     })
 }
