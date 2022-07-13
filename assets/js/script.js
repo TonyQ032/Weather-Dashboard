@@ -153,7 +153,7 @@ function generateWeatherData(location) {
           for (i = 0; i < cardWeathers.length; i++) {
             //Changes weather icons
             const cardImgValue = data2.daily[i].weather[0].icon;
-            cardImgs[i].src = `http://openweathermap.org/img/wn/${cardImgValue}@2x.png`;
+            cardImgs[i].src = `https://openweathermap.org/img/wn/${cardImgValue}@2x.png`;
 
             //Changes weather status
             const cWeatherValue = data2.daily[i].weather[0].main + ", " + data2.daily[i].weather[0].description;
@@ -191,7 +191,7 @@ function generateWeatherData(location) {
 
           const weatherImg = document.querySelector("#weather-img");
           const weatherImgUrl = data2.current.weather[0].icon;
-          weatherImg.src = `http://openweathermap.org/img/wn/${weatherImgUrl}@2x.png`;
+          weatherImg.src = `https://openweathermap.org/img/wn/${weatherImgUrl}@2x.png`;
         })
     })
 }
