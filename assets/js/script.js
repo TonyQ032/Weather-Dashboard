@@ -82,7 +82,7 @@ function generateListItem() {
 //Takes user's input and generates weather data using the API
 //-----------------------------------------------------------
 function generateWeatherData(location) {
-  let requestUrl1 = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${apiKey}`;
+  let requestUrl1 = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${apiKey}`;
   fetch(requestUrl1)
     .then(function (response) {
       return response.json();
